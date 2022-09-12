@@ -1,0 +1,6 @@
+[submodule "aims_grading_ms"]
+	path = aims_grading_ms
+	url = git@github.com:SGman98/aims_grading_ms.git
+[submodule "aims_enrollment_ms"]
+	path = aims_enrollment_ms
+	url = git@github.com:sarodriguezva/aims_enrollment_ms.git
