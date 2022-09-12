@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  enrollment_ms:
+    extends:
+      file: ./aims_enrollment_ms/docker-compose.yml
+      service: enrollment_ms
+  aims_enrollments_db:
+    extends:
+      file: ./aims_enrollment_ms/docker-compose.yml
+      service: aims_enrollments_db
+  aims_grading_ms:
+    extends:
+      file: ./aims_grading_ms/docker-compose.yml
+      service: aims_grading_ms
+  aims_grading_db:
+    extends:
+      file: ./aims_grading_ms/docker-compose.yml
+      service: aims_grading_db
