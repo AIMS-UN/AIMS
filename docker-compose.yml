@@ -1,9 +1,9 @@
 version: "3.7"
 services:
-  enrollment_ms:
-    extends:
-      file: ./aims_enrollment_ms/docker-compose.yml
-      service: enrollment_ms
+  # enrollment_ms:
+  #   extends:
+  #     file: ./aims_enrollment_ms/docker-compose.yml
+  #     service: enrollment_ms
   aims_enrollments_db:
     extends:
       file: ./aims_enrollment_ms/docker-compose.yml
@@ -24,3 +24,19 @@ services:
     extends:
       file: ./aims_schedule_ms/docker-compose.yml
       service: aims_schedule_db
+  aims_profile_ms:
+    extends:
+      file: ./aims_profile_ms/docker-compose.yml
+      service: aims_profile_ms
+  aims_profile_db:
+    extends:
+      file: ./aims_profile_ms/docker-compose.yml
+      service: aims_profile_db
+  # subject_ms:
+  #   extends:
+  #     file: ./aims_subject_ms/docker-compose.yml
+  #     service: subject_ms
+  db:
+    extends:
+      file: ./aims_subject_ms/docker-compose.yml
+      service: db

@@ -7,3 +7,9 @@
 [submodule "aims_schedule_ms"]
 	path = aims_schedule_ms
 	url = git@github.com:DavidHernandez2001/aims_schedule_ms.git
+[submodule "aims_subject_ms"]
+	path = aims_subject_ms
+	url = git@github.com:Judirale13/aims_subject_ms.git
+[submodule "aims_profile_ms"]
+	path = aims_profile_ms
+	url = git@github.com:sansanchezmo/aims_profile_ms.git
