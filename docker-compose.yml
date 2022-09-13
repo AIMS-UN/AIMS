@@ -40,3 +40,11 @@ services:
   #   extends:
   #     file: ./aims_subject_ms/docker-compose.yml
   #     service: db
+  # aims_college_db:
+  #   extends:
+  #     file: ./aims_college_ms/docker-compose.yml
+  #     service: db
+  # aims_college_ms:
+  #   extends:
+  #     file: ./aims_college_ms/docker-compose.yml
+  #     service: college_ms
