@@ -16,3 +16,6 @@
 [submodule "aims_college_ms"]
 	path = aims_college_ms
 	url = git@github.com:Judirale13/aims_college_ms.git
+[submodule "aimsAccount"]
+	path = aimsAccount
+	url = git@github.com:jdbu2002/aimsAccount.git
