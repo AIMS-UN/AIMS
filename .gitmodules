@@ -4,3 +4,6 @@
 [submodule "aims_enrollment_ms"]
 	path = aims_enrollment_ms
 	url = git@github.com:sarodriguezva/aims_enrollment_ms.git
+[submodule "aims_schedule_ms"]
+	path = aims_schedule_ms
+	url = git@github.com:DavidHernandez2001/aims_schedule_ms.git

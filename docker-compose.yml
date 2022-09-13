@@ -16,3 +16,11 @@ services:
     extends:
       file: ./aims_grading_ms/docker-compose.yml
       service: aims_grading_db
+  # aims_schedule_ms:
+  #   extends:
+  #     file: ./aims_schedule_ms/docker-compose.yml
+  #     service: aims_schedule_ms
+  aims_schedule_db:
+    extends:
+      file: ./aims_schedule_ms/docker-compose.yml
+      service: aims_schedule_db
