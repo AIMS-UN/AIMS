@@ -1,13 +1,13 @@
 version: "3.7"
 services:
-  enrollment_ms:
+  aims_enrollment_ms:
     extends:
       file: ./aims_enrollment_ms/docker-compose.yml
-      service: enrollment_ms
-  db:
+      service: aims_enrollment_ms
+  aims_enrollment_db:
     extends:
       file: ./aims_enrollment_ms/docker-compose.yml
-      service: db
+      service: aims_enrollment_db
   aims_grading_ms:
     extends:
       file: ./aims_grading_ms/docker-compose.yml
@@ -32,19 +32,37 @@ services:
     extends:
       file: ./aims_profile_ms/docker-compose.yml
       service: aims_profile_db
-  # aims_subject_ms:
-  #   extends:
-  #     file: ./aims_subject_ms/docker-compose.yml
-  #     service: subject_ms
-  # aims_subject_db:
-  #   extends:
-  #     file: ./aims_subject_ms/docker-compose.yml
-  #     service: db
-  # aims_college_db:
-  #   extends:
-  #     file: ./aims_college_ms/docker-compose.yml
-  #     service: db
-  # aims_college_ms:
-  #   extends:
-  #     file: ./aims_college_ms/docker-compose.yml
-  #     service: college_ms
+  aims_subject_ms:
+    extends:
+      file: ./aims_subject_ms/docker-compose.yml
+      service: aims_subject_ms
+  aims_subject_db:
+    extends:
+      file: ./aims_subject_ms/docker-compose.yml
+      service: aims_subject_db
+  aims_college_db:
+    extends:
+      file: ./aims_college_ms/docker-compose.yml
+      service: aims_college_db
+  aims_college_ms:
+    extends:
+      file: ./aims_college_ms/docker-compose.yml
+      service: aims_college_ms
+  aims_account_ms:
+    extends:
+      file: ./aims_account_ms/docker-compose.yml
+      service: aims_account_ms
+  aims_account_db:
+    extends:
+      file: ./aims_account_ms/docker-compose.yml
+      service: aims_account_db
+
+networks:
+  aims_account_network:
+    driver: bridge
+  aims_college_network:
+    driver: bridge
+  aims_subject_network:
+    driver: bridge
+  aims_grading_network:
+    driver: bridge
