@@ -19,3 +19,6 @@
 [submodule "logic/aims_subject_ms"]
 	path = logic/aims_subject_ms
 	url = git@github.com:Judirale13/aims_subject_ms.git
+[submodule "integration/aims_api_gateway"]
+	path = integration/aims_api_gateway
+	url = git@github.com:SGman98/aims_api_gateway.git
