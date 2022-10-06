@@ -1,21 +1,21 @@
-[submodule "aims_grading_ms"]
-	path = aims_grading_ms
-	url = git@github.com:SGman98/aims_grading_ms.git
-[submodule "aims_enrollment_ms"]
-	path = aims_enrollment_ms
-	url = git@github.com:sarodriguezva/aims_enrollment_ms.git
-[submodule "aims_schedule_ms"]
-	path = aims_schedule_ms
-	url = git@github.com:DavidHernandez2001/aims_schedule_ms.git
-[submodule "aims_subject_ms"]
-	path = aims_subject_ms
-	url = git@github.com:Judirale13/aims_subject_ms.git
-[submodule "aims_profile_ms"]
-	path = aims_profile_ms
-	url = git@github.com:sansanchezmo/aims_profile_ms.git
-[submodule "aims_college_ms"]
-	path = aims_college_ms
-	url = git@github.com:Judirale13/aims_college_ms.git
-[submodule "aims_account_ms"]
-	path = aims_account_ms
+[submodule "logic/aims_account_ms"]
+	path = logic/aims_account_ms
 	url = git@github.com:jdbu2002/aims_account_ms.git
+[submodule "logic/aims_college_ms"]
+	path = logic/aims_college_ms
+	url = git@github.com:Judirale13/aims_college_ms.git
+[submodule "logic/aims_enrollment_ms"]
+	path = logic/aims_enrollment_ms
+	url = git@github.com:sarodriguezva/aims_enrollment_ms.git
+[submodule "logic/aims_grading_ms"]
+	path = logic/aims_grading_ms
+	url = git@github.com:SGman98/aims_grading_ms.git
+[submodule "logic/aims_profile_ms"]
+	path = logic/aims_profile_ms
+	url = git@github.com:sansanchezmo/aims_profile_ms.git
+[submodule "logic/aims_schedule_ms"]
+	path = logic/aims_schedule_ms
+	url = git@github.com:DavidHernandez2001/aims_schedule_ms.git
+[submodule "logic/aims_subject_ms"]
+	path = logic/aims_subject_ms
+	url = git@github.com:Judirale13/aims_subject_ms.git
