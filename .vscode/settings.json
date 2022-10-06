@@ -1,0 +1,57 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3307,
+      "driver": "MySQL",
+      "name": "account",
+      "group": "aims",
+      "database": "accounts",
+      "username": "aims",
+      "password": "aims"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3308,
+      "driver": "MySQL",
+      "name": "college",
+      "group": "aims",
+      "database": "college",
+      "username": "aims",
+      "password": "aims"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3309,
+      "driver": "MySQL",
+      "name": "subject",
+      "group": "aims",
+      "database": "subjects",
+      "username": "aims",
+      "password": "aims"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "driver": "PostgreSQL",
+      "name": "enrollment",
+      "group": "aims",
+      "database": "enrollments",
+      "username": "aims",
+      "password": "aims"
+    }
+  ]
+}
