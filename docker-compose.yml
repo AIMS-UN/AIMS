@@ -1,68 +1,144 @@
-version: "3.7"
-services:
-  aims_enrollment_ms:
-    extends:
-      file: ./aims_enrollment_ms/docker-compose.yml
-      service: aims_enrollment_ms
-  aims_enrollment_db:
-    extends:
-      file: ./aims_enrollment_ms/docker-compose.yml
-      service: aims_enrollment_db
-  aims_grading_ms:
-    extends:
-      file: ./aims_grading_ms/docker-compose.yml
-      service: aims_grading_ms
-  aims_grading_db:
-    extends:
-      file: ./aims_grading_ms/docker-compose.yml
-      service: aims_grading_db
-  # aims_schedule_ms:
-  #   extends:
-  #     file: ./aims_schedule_ms/docker-compose.yml
-  #     service: aims_schedule_ms
-  aims_schedule_db:
-    extends:
-      file: ./aims_schedule_ms/docker-compose.yml
-      service: aims_schedule_db
-  aims_profile_ms:
-    extends:
-      file: ./aims_profile_ms/docker-compose.yml
-      service: aims_profile_ms
-  aims_profile_db:
-    extends:
-      file: ./aims_profile_ms/docker-compose.yml
-      service: aims_profile_db
-  aims_subject_ms:
-    extends:
-      file: ./aims_subject_ms/docker-compose.yml
-      service: aims_subject_ms
-  aims_subject_db:
-    extends:
-      file: ./aims_subject_ms/docker-compose.yml
-      service: aims_subject_db
-  aims_college_db:
-    extends:
-      file: ./aims_college_ms/docker-compose.yml
-      service: aims_college_db
-  aims_college_ms:
-    extends:
-      file: ./aims_college_ms/docker-compose.yml
-      service: aims_college_ms
-  aims_account_ms:
-    extends:
-      file: ./aims_account_ms/docker-compose.yml
-      service: aims_account_ms
-  aims_account_db:
-    extends:
-      file: ./aims_account_ms/docker-compose.yml
-      service: aims_account_db
+version: "3.8"
+name: "aims"
 
-networks:
-  aims_account_network:
-    driver: bridge
-  aims_college_network:
-    driver: bridge
-  aims_subject_network:
-    driver: bridge
-  aims_grading_network:
-    driver: bridge
+# Layer Architecture
+services:
+  # Data Layer
+  account-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: account-db
+  college-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: college-db
+  enrollment-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: enrollment-db
+  grading-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: grading-db
+  profile-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: profile-db
+  subject-db:
+    extends:
+      file: ./data/docker-compose.yml
+      service: subject-db
+
+  # Logic Layer
+  account-ms:
+    extends:
+      file: ./logic/aims_account_ms/docker-compose.yml
+      service: account-ms
+    depends_on:
+      - account-db
+    links:
+      - account-db
+  college-ms:
+    extends:
+      file: ./logic/aims_college_ms/docker-compose.yml
+      service: college-ms
+    depends_on:
+      - college-db
+    links:
+      - college-db
+  enrollment-ms:
+    extends:
+      file: ./logic/aims_enrollment_ms/docker-compose.yml
+      service: enrollment-ms
+    depends_on:
+      - enrollment-db
+    links:
+      - enrollment-db
+  grading-ms:
+    extends:
+      file: ./logic/aims_grading_ms/docker-compose.yml
+      service: grading-ms
+    depends_on:
+      - grading-db
+    links:
+      - grading-db
+  profile-ms:
+    extends:
+      file: ./logic/aims_profile_ms/docker-compose.yml
+      service: profile-ms
+    depends_on:
+      - profile-db
+    links:
+      - profile-db
+  schedule-ms:
+    extends:
+      file: ./logic/aims_schedule_ms/docker-compose.yml
+      service: schedule-ms
+    depends_on:
+      - enrollment-db
+    links:
+      - enrollment-db
+  subject-ms:
+    extends:
+      file: ./logic/aims_subject_ms/docker-compose.yml
+      service: subject-ms
+    depends_on:
+      - subject-db
+    links:
+      - subject-db
+
+  # Message Broker ***
+  rabbitmq:
+    extends:
+      file: ./mq/docker-compose.yml
+      service: rabbitmq
+    
+  # Integration Layer
+  api-gateway:
+    extends:
+      file: ./integration/aims_api_gateway/docker-compose.yml
+      service: api-gateway
+    depends_on:
+      - account-ms
+      - college-ms
+      - enrollment-ms
+      - grading-ms
+      - profile-ms
+      - schedule-ms
+      - subject-ms
+
+      - rabbitmq
+    links:
+      - account-ms
+      - college-ms
+      - enrollment-ms
+      - grading-ms
+      - profile-ms
+      - schedule-ms
+      - subject-ms
+
+      - rabbitmq
+
+    environment:
+      - ACCOUNT_MS_BASE_URL=http://account-ms:3000
+      - COLLEGE_MS_BASE_URL=http://college-ms:8080
+      - ENROLLMENTS_MS_BASE_URL=http://enrollment-ms:8080
+      - GRADING_MS_BASE_URL=http://grading-ms:8000/api/v1
+      - PROFILE_MS_BASE_URL=http://profile-ms:4000
+      - SCHEDULE_MS_BASE_URL=http://schedule-ms:4000
+      - SUBJECT_MS_BASE_URL=http://subject-ms:8080
+
+      - AMQP_URL=amqp://aims:aims@rabbitmq:5672
+
+volumes:
+  account_db_data:
+  college_db_data:
+  enrollment_db_data:
+  grading_db_data:
+  grading_db_config:
+  profile_db_data:
+  profile_db_config:
+  subject_db_data:
+
+  rabbitmq_data:
+  rabbitmq_log:
