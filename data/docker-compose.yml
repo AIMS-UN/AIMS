@@ -1,0 +1,95 @@
+version: "3.8"
+name: "aims"
+
+# Data Layer
+services:
+  account-db:
+    image: mysql:latest
+    container_name: account_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=accounts
+      - MYSQL_USER=aims
+      - MYSQL_PASSWORD=aims
+    ports:
+      - "3307:3306"
+    volumes:
+      - account_db_data:/var/lib/mysql
+
+  college-db:
+    image: mysql:latest
+    container_name: college_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=college
+      - MYSQL_USER=aims
+      - MYSQL_PASSWORD=aims
+    ports:
+      - "3308:3306"
+    volumes:
+      - college_db_data:/var/lib/mysql
+
+  enrollment-db:
+    image: postgres:latest
+    container_name: enrollment_db
+    environment:
+      - POSTGRES_DB=enrollments
+      - POSTGRES_USER=aims
+      - POSTGRES_PASSWORD=aims
+    ports:
+      - "5433:5432"
+    volumes:
+      - enrollment_db_data:/var/lib/postgresql/data
+
+  grading-db:
+    image: mongo:latest
+    container_name: grading_db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=aims
+      - MONGO_INITDB_ROOT_PASSWORD=aims
+    ports:
+      - "27018:27017"
+    volumes:
+      - grading_db_data:/data/db
+      - grading_db_config:/data/configdb
+
+  profile-db:
+    image: mongo:latest
+    container_name: profile_db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=aims
+      - MONGO_INITDB_ROOT_PASSWORD=aims
+    ports:
+      - "27019:27017"
+    volumes:
+      - profile_db_data:/data/db
+      - profile_db_config:/data/configdb
+      
+  subject-db:
+    image: mysql:latest
+    container_name: subject_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=subjects
+      - MYSQL_USER=aims
+      - MYSQL_PASSWORD=aims
+    ports:
+      - "3309:3306"
+    volumes:
+      - subject_db_data:/var/lib/mysql
+
+volumes:
+  account_db_data:
+  college_db_data:
+  enrollment_db_data:
+  grading_db_data:
+  grading_db_config:
+  profile_db_data:
+  profile_db_config:
+  subject_db_data:
