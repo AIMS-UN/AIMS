@@ -1,0 +1,323 @@
+query Query(
+  $msName: String!
+  $groupId: String
+  $subjectName: String!
+  $subjectCode: String!
+  $careerId: Float!
+  $subjectId: Float!
+  $classGroupId: String!
+  $departmentId: Float!
+  $facultyId: Float!
+  $getCareerByIdCareerId2: Float!
+) {
+  ping
+  pong
+  getData(msName: $msName) {
+    name
+    message
+  }
+  pingAuth
+  myAccount {
+    id
+    username
+    role
+    updatedAt
+    createdAt
+  }
+  getGradingCategories(group_id: $groupId) {
+    id
+    name
+    weight
+    group_id
+    subject_code
+  }
+  getGrades {
+    id
+    category_id
+    student_id
+    score
+  }
+  getSubjects {
+    subjectId
+    subjectName
+    subjectCode
+    careerId
+    curriculum
+    credits
+    groups {
+      groupId
+      maxCapacity
+      teacherId
+      schedules {
+        scheduleId
+        day
+        startTime
+        endTime
+        classroom
+        building
+      }
+    }
+  }
+  getSubjectByName(subjectName: $subjectName) {
+    subjectId
+    subjectName
+    subjectCode
+    careerId
+    curriculum
+    credits
+    groups {
+      groupId
+      maxCapacity
+      teacherId
+      schedules {
+        scheduleId
+        day
+        startTime
+        endTime
+        classroom
+        building
+      }
+    }
+  }
+  getSubjectByCode(subjectCode: $subjectCode) {
+    subjectId
+    subjectName
+    subjectCode
+    careerId
+    curriculum
+    credits
+    groups {
+      groupId
+      maxCapacity
+      teacherId
+      schedules {
+        scheduleId
+        day
+        startTime
+        endTime
+        classroom
+        building
+      }
+    }
+  }
+  getSubjectByCareer(careerId: $careerId) {
+    subjectId
+    subjectName
+    subjectCode
+    careerId
+    curriculum
+    credits
+    groups {
+      groupId
+      maxCapacity
+      teacherId
+      schedules {
+        scheduleId
+        day
+        startTime
+        endTime
+        classroom
+        building
+      }
+    }
+  }
+  getSubjectById(subjectId: $subjectId) {
+    subjectId
+    subjectName
+    subjectCode
+    careerId
+    curriculum
+    credits
+    groups {
+      groupId
+      maxCapacity
+      teacherId
+      schedules {
+        scheduleId
+        day
+        startTime
+        endTime
+        classroom
+        building
+      }
+    }
+  }
+  getClassGroups {
+    groupId
+    maxCapacity
+    teacherId
+    subject {
+      subjectId
+      subjectName
+      subjectCode
+      careerId
+      curriculum
+      credits
+    }
+    schedules {
+      scheduleId
+      day
+      startTime
+      endTime
+      classroom
+      building
+    }
+  }
+  getGroupById(classGroupId: $classGroupId) {
+    groupId
+    maxCapacity
+    teacherId
+    subject {
+      subjectId
+      subjectName
+      subjectCode
+      careerId
+      curriculum
+      credits
+    }
+    schedules {
+      scheduleId
+      day
+      startTime
+      endTime
+      classroom
+      building
+    }
+  }
+  getCareers {
+    careerId
+    careerName
+    credits
+    department {
+      departmentId
+      departmentName
+      faculty {
+        facultyId
+        facultyName
+      }
+    }
+  }
+  getDepartments {
+    departmentId
+    departmentName
+    faculty {
+      facultyId
+      facultyName
+    }
+    careers {
+      careerId
+      careerName
+      credits
+    }
+  }
+  getFaculties {
+    facultyId
+    facultyName
+    departments {
+      departmentId
+      departmentName
+      careers {
+        careerId
+        careerName
+        credits
+      }
+    }
+  }
+  getDepartmentById(departmentId: $departmentId) {
+    departmentId
+    departmentName
+    faculty {
+      facultyId
+      facultyName
+    }
+    careers {
+      careerId
+      careerName
+      credits
+    }
+  }
+  getFacultyById(facultyId: $facultyId) {
+    facultyId
+    facultyName
+    departments {
+      departmentId
+      departmentName
+      careers {
+        careerId
+        careerName
+        credits
+      }
+    }
+  }
+  getProfiles {
+    user_id
+    name
+    lastname
+    email
+    birthdate
+    phone_number
+    address
+    historials {
+      coursed_credits
+      approved_credits
+      reprobed_credits
+      GPA
+      career
+    }
+  }
+  getEnrollmentsByFilters {
+    id
+    user
+    group
+    subject
+    semester
+    finalGrade
+  }
+  getMySchedule {
+    groupId
+    maxCapacity
+    teacherId
+    subject {
+      subjectId
+      subjectName
+      subjectCode
+      careerId
+      curriculum
+      credits
+    }
+    schedules {
+      scheduleId
+      day
+      startTime
+      endTime
+      classroom
+      building
+    }
+  }
+  getCareerById(careerId: $getCareerByIdCareerId2) {
+    careerId
+    careerName
+    credits
+    department {
+      departmentId
+      departmentName
+      faculty {
+        facultyId
+        facultyName
+      }
+    }
+  }
+}
+
+{
+  "msName": "hola",
+  "groupId": "cca4c365-befb-4d4b-bd42-d9b92384a57d",
+  "subjectName": "Arquitectura de Software",
+  "subjectCode": "1053486524-D",
+  "careerId": 1,
+  "subjectId": 2,
+  "classGroupId": "d0b5c4b5-5b1f-4b2b-9b2c-9b2c9b2c9b2d",
+  "getCareerByIdCareerId2": 1,
+  "departmentId": 4,
+  "facultyId": 4
+}
