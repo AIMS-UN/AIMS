@@ -7,7 +7,7 @@ It uses a layered architecture with multiple microservices, and different
 technologies.
 
 This project was created with the intention of being a platform for
-academic information management, where students and teachers can
+the management of academic information, where students and teachers can
 interact with the system easily offering a diverse set of services.
 
 ## Members
@@ -43,6 +43,16 @@ Then run the following command to start the project:
 docker-compose up -d --build
 ```
 
+> This will run:\
+> 6 containers for databases\
+> 7 containers for microservices\
+> 1 container for the gateway\
+> 1 container for the message broker\
+> In total 15 containers
+
+> Each part of the project have a different git repository with its own
+> documentation and deployment instructions and files.
+
 ## Layers
 
 ### Data Layer
@@ -57,9 +67,6 @@ It contains all the databases needed for the project.
 | grading-db    | [MongoDB](https://www.mongodb.com/) 🍃       |
 | profile-db    | [MongoDB](https://www.mongodb.com/) 🍃       |
 | subject-db    | [MySQL](https://www.mysql.com/) 🐬           |
-
-This layer may be deployed using the docker-compose file in the data folder.
-The deployment details file can be found [here](https://github.com/SGman98/AIMS/blob/main/data/docker-compose.yml).
 
 > There is an initial script with some data in the corresponding logic folder, the file is called `init.sql`.
 
