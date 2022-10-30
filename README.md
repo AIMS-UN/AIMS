@@ -61,9 +61,12 @@ It contains all the databases needed for the project.
 This layer may be deployed using the docker-compose file in the data folder.
 The deployment details file can be found [here](https://github.com/SGman98/AIMS/blob/main/data/docker-compose.yml).
 
+> There is an initial script with some data in the corresponding logic folder, the file is called `init.sql`.
+
 ### Logic Layer
 
-It contains all the microservices.
+It contains all the microservices, each one uses the corresponding database, and
+exposes a REST API to interact with the data.
 
 | Microservice  |                   Language                   |                        Framework                         |                           Repository                           |
 | :------------ | :------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------------: |
@@ -75,17 +78,20 @@ It contains all the microservices.
 | schedule-ms   |         [Go](https://golang.org/) 🐹         |             [Gin](https://gin-gonic.com) 🍸              | [Link](https://github.com/DavidHernandez2001/aims_schedule_ms) |
 | subject-ms    |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |     [Link](https://github.com/Judirale13/aims_subject_ms)      |
 
-Each microservice exposes a REST API.
+> The schedule microservices uses the same database as the enrollment microservice.
+> enrollment-ms is for mutations and schedule-ms is for queries.
 
 ### Integration Layer
 
-It contains the API Gateway.
+It contains the API Gateway, this gateway connects all the microservices and
+exposes a single API using the [GraphQL](https://graphql.org/) query language,
+and the [Apollo Server](https://www.apollographql.com/docs/apollo-server/).
 
 | Microservice |                     Language                     |              Framework               |                     Repository                      |
 | :----------- | :----------------------------------------------: | :----------------------------------: | :-------------------------------------------------: |
 | ag           | [TypeScript](https://www.typescriptlang.org/) 📜 | [Express](https://expressjs.com/) 🚀 | [Link](https://github.com/SGman98/aims_api_gateway) |
 
-API Gateway exposes a GraphQL API using [Apollo Server](https://www.apollographql.com/docs/apollo-server/).
+> The connection with the grading microservice uses a queue message broker, in this case [RabbitMQ](https://www.rabbitmq.com/).
 
 ### Interface (Presentation) Layer
 
