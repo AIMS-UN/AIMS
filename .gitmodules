@@ -22,3 +22,9 @@
 [submodule "integration/aims_api_gateway"]
 	path = integration/aims_api_gateway
 	url = git@github.com:SGman98/aims_api_gateway.git
+[submodule "interfaces/web"]
+	path = interfaces/web
+	url = git@github.com:sarodriguezva/aims_wa.git
+[submodule "interfaces/mobile"]
+	path = interfaces/mobile
+	url = git@github.com:SGman98/aims_mobile_app.git
