@@ -48,7 +48,8 @@ docker-compose up -d --build
 > 7 containers for microservices\
 > 1 container for the gateway\
 > 1 container for the message broker\
-> In total 15 containers
+> 1 container for the web application\
+> In total 16 containers
 
 > Each part of the project have a different git repository with its own
 > documentation and deployment instructions and files.
@@ -108,8 +109,6 @@ In this layer, we have the web application and the mobile application.
 | :---------- | :----------------------------------------------: | :--------------------------------: | :------------------------------------------------: |
 | web         | [TypeScript](https://www.typescriptlang.org/) 📜 | [Angular](https://angular.io/) 🍃  |  [Link](https://github.com/sarodriguezva/aims_wa)  |
 | mobile      |           [Dart](https://dart.dev/) 🎯           | [Flutter](https://flutter.dev/) 🎯 | [Link](https://github.com/SGman98/aims_mobile_app) |
-
-To run the web application there is a docker-compose file in the apps/web folder.
 
 To run the mobile application, you need to install [Flutter](https://flutter.dev/docs/get-started/install) and run the following command in the apps/mobile folder:
 
