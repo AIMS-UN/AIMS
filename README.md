@@ -100,7 +100,7 @@ and the [Apollo Server](https://www.apollographql.com/docs/apollo-server/).
 
 > The connection with the grading microservice uses a queue message broker, in this case [RabbitMQ](https://www.rabbitmq.com/).
 
-### Interface (Presentation) Layer
+### Presentation (App) Layer
 
 In this layer, we have the web application and the mobile application.
 
@@ -109,9 +109,9 @@ In this layer, we have the web application and the mobile application.
 | web         | [TypeScript](https://www.typescriptlang.org/) 📜 | [Angular](https://angular.io/) 🍃  |  [Link](https://github.com/sarodriguezva/aims_wa)  |
 | mobile      |           [Dart](https://dart.dev/) 🎯           | [Flutter](https://flutter.dev/) 🎯 | [Link](https://github.com/SGman98/aims_mobile_app) |
 
-To run the web application there is a docker-compose file in the interfaces/web folder.
+To run the web application there is a docker-compose file in the apps/web folder.
 
-To run the mobile application, you need to install [Flutter](https://flutter.dev/docs/get-started/install) and run the following command in the interfaces/mobile folder:
+To run the mobile application, you need to install [Flutter](https://flutter.dev/docs/get-started/install) and run the following command in the apps/mobile folder:
 
 ```sh
 flutter run
