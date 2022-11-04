@@ -130,6 +130,25 @@ services:
 
       - AMQP_URL=amqp://aims:aims@rabbitmq:5672
 
+      - FRONTEND_URL=http://localhost:4200
+
+  # Presentation Layer
+
+  # mobile-app doesn't need to be dockerized because it is deployed on the mobile device
+
+  web-app:
+    extends:
+      file: ./apps/web/docker-compose.yml
+      service: web-app
+    depends_on:
+      - api-gateway
+    links:
+      - api-gateway
+
+    environment:
+      - API_GATEWAY_BASE_URL=http://api-gateway:3000/graphql
+
+
 volumes:
   account_db_data:
   college_db_data:
