@@ -130,7 +130,7 @@ services:
 
       - AMQP_URL=amqp://aims:aims@rabbitmq:5672
 
-      - FRONTEND_URL=http://localhost:4200
+      - FRONTEND_URL=http://localhost
 
   # Presentation Layer
 
@@ -145,8 +145,25 @@ services:
     links:
       - api-gateway
 
-    environment:
-      - API_GATEWAY_BASE_URL=http://api-gateway:3000/graphql
+  # Security Layer
+
+  api-gateway-proxy:
+    extends:
+      file: ./security/docker-compose.yml
+      service: api-gateway-proxy
+    depends_on:
+      - api-gateway
+    links:
+      - api-gateway
+  
+  web-app-proxy:
+    extends:
+      file: ./security/docker-compose.yml
+      service: web-app-proxy
+    depends_on:
+      - web-app
+    links:
+      - web-app
 
 
 volumes:

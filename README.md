@@ -49,7 +49,8 @@ docker-compose up -d --build
 > 1 container for the gateway\
 > 1 container for the message broker\
 > 1 container for the web application\
-> In total 16 containers
+> 2 containers for the proxies
+> In total 18 containers
 
 > Each part of the project have a different git repository with its own
 > documentation and deployment instructions and files.
@@ -115,3 +116,13 @@ To run the mobile application, you need to install [Flutter](https://flutter.dev
 ```sh
 flutter run
 ```
+
+### Security Layer
+
+In this layer, we have 2 proxies, one for the web application and one for the
+API gateway.
+
+| ..                |             Technology             |
+| :---------------- | :--------------------------------: |
+| web-app-proxy     | [Nginx](https://www.nginx.com/) 🐳 |
+| api-gateway-proxy | [Nginx](https://www.nginx.com/) 🐳 |

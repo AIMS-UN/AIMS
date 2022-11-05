@@ -1,0 +1,12 @@
+upstream api-gateway {
+    server api-gateway:3000;
+}
+
+server {
+    listen 80;
+    server_name api-gateway;
+
+    location /graphql {
+        proxy_pass http://api-gateway/graphql;
+    }
+}
