@@ -36,8 +36,10 @@ services:
       service: account-ms
     depends_on:
       - account-db
+      - account-ldap
     links:
       - account-db
+      - account-ldap
   college-ms:
     extends:
       file: ./logic/aims_college_ms/docker-compose.yml
@@ -92,7 +94,7 @@ services:
     extends:
       file: ./mq/docker-compose.yml
       service: rabbitmq
-    
+
   # Integration Layer
   api-gateway:
     extends:
@@ -165,6 +167,10 @@ services:
     links:
       - web-app
 
+  account-ldap:
+    extends:
+      file: ./security/docker-compose.yml
+      service: account-ldap
 
 volumes:
   account_db_data:
@@ -178,3 +184,7 @@ volumes:
 
   rabbitmq_data:
   rabbitmq_log:
+
+  account_ldap_data:
+  account_ldap_config:
+  account_ldap_certs:
