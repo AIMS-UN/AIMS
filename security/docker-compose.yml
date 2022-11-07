@@ -15,10 +15,12 @@ services:
     image: nginx:alpine
     container_name: web_app_proxy
     ports:
+      - 443:443
       - 80:80
-
     volumes:
-      - ./web_app_proxy.nginx:/etc/nginx/conf.d/default.conf
+      - ./web_app_proxy.nginx:/etc/nginx/nginx.conf:ro
+      - ./aims.crt:/etc/ssl/certs/aims.crt
+      - ./aims.key:/etc/ssl/private/aims.key
 
   account-ldap:
     image: osixia/openldap:1.2.2
