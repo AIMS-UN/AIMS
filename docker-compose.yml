@@ -132,7 +132,7 @@ services:
 
       - AMQP_URL=amqp://aims:aims@rabbitmq:5672
 
-      - FRONTEND_URL=http://localhost
+      - FRONTEND_URL=https://localhost
 
   # Presentation Layer
 
