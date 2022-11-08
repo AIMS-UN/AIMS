@@ -24,7 +24,7 @@ services:
 
   account-ldap:
     image: osixia/openldap:1.2.2
-    container_name: account-ldap
+    container_name: account_ldap
     restart: always
     environment:
       COMPOSE_HTTP_TIMEOUT: 200
