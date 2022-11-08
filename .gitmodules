@@ -28,3 +28,6 @@
 [submodule "apps/mobile"]
 	path = apps/mobile
 	url = git@github.com:SGman98/aims_mobile_app.git
+[submodule "interface"]
+	path = interface
+	url = git@github.com:SGman98/aims_interface.git

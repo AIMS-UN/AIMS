@@ -172,6 +172,17 @@ services:
       file: ./security/docker-compose.yml
       service: account-ldap
 
+  # Interoperability (interface) Layer
+
+  interface:
+    extends:
+      file: ./interface/docker-compose.yml
+      service: interface
+    depends_on:
+      - subject-ms
+    links:
+      - subject-ms
+
 volumes:
   account_db_data:
   college_db_data:
