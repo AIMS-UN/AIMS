@@ -157,7 +157,7 @@ services:
       - api-gateway
     links:
       - api-gateway
-  
+
   web-app-proxy:
     extends:
       file: ./security/docker-compose.yml
@@ -171,6 +171,23 @@ services:
     extends:
       file: ./security/docker-compose.yml
       service: account-ldap
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: ldap_client
+
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=account-ldap
+      - PHPLDAPADMIN_HTTPS=false
+
+    volumes:
+      - phpldapadmin_data:/var/www/phpldapadmin
+
+    ports:
+      - "8085:80"
+
+    links:
+      - account-ldap
 
   # Interoperability (interface) Layer
 
@@ -199,3 +216,5 @@ volumes:
   account_ldap_data:
   account_ldap_config:
   account_ldap_certs:
+
+  phpldapadmin_data:

@@ -28,29 +28,38 @@ interact with the system easily offering a diverse set of services.
 - [Git](https://git-scm.com/downloads) 🐱‍💻
 - [Docker](https://docs.docker.com/install/) 🐳
 - [Docker Compose](https://docs.docker.com/compose/install/) 🐙
+- [OpenSSL](https://www.openssl.org/) 🛡️
 
 ### Run
 
 Clone the repository and run the following command to get the submodules:
 
-```bash
+```sh
 git submodule update --init --recursive
+```
+
+Create the ssl certificates running the following command in the security folder:
+
+```sh
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout aims.key -out aims.crt -config aims.conf
 ```
 
 Then run the following command to start the project:
 
-```bash
+```sh
 docker-compose up -d --build
 ```
 
 > This will run:\
 > 6 containers for databases\
 > 7 containers for microservices\
-> 1 container for the gateway\
+> 1 container for the api-gateway\
 > 1 container for the message broker\
 > 1 container for the web application\
-> 2 containers for the proxies
-> In total 18 containers
+> 2 containers for the reverse proxies (one for the web application and one for the api-gateway)\
+> 1 container for the ldap and 1 for phpldapadmin\
+> 1 container for the interface\
+> In total 21 containers
 
 > Each part of the project have a different git repository with its own
 > documentation and deployment instructions and files.
@@ -122,7 +131,18 @@ flutter run
 In this layer, we have 2 proxies, one for the web application and one for the
 API gateway.
 
-| ..                |             Technology             |
-| :---------------- | :--------------------------------: |
-| web-app-proxy     | [Nginx](https://www.nginx.com/) 🐳 |
-| api-gateway-proxy | [Nginx](https://www.nginx.com/) 🐳 |
+| ..                |                    Technology                    |
+| :---------------- | :----------------------------------------------: |
+| web-app-proxy     |        [Nginx](https://www.nginx.com/) 🐳        |
+| api-gateway-proxy |        [Nginx](https://www.nginx.com/) 🐳        |
+| account-ldap      |     [OpenLDAP](https://www.openldap.org/) 🐳     |
+| phpldapadmin      | [phpLDAPadmin](https://www.phpLDAPadmin.org/) 🐳 |
+
+### Interoperability Layer
+
+In this layer, we have the interface it exposes a SOAP API with the
+getSubjects functionality.
+
+| ..        |                                                      Technology                                                      |
+| :-------- | :------------------------------------------------------------------------------------------------------------------: |
+| interface | [Javascript](https://www.javascript.com/) 📜 [Node.js](https://nodejs.org/en/) 🐳 [SOAP](https://www.soapui.org/) 🐳 |
