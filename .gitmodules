@@ -1,33 +1,33 @@
 [submodule "logic/aims_account_ms"]
 	path = logic/aims_account_ms
-	url = git@github.com:jdbu2002/aims_account_ms.git
+	url = https://github.com/AIMS-UN/account_ms.git
 [submodule "logic/aims_college_ms"]
 	path = logic/aims_college_ms
-	url = git@github.com:Judirale13/aims_college_ms.git
+	url = https://github.com/AIMS-UN/college_ms.git
 [submodule "logic/aims_enrollment_ms"]
 	path = logic/aims_enrollment_ms
-	url = git@github.com:sarodriguezva/aims_enrollment_ms.git
+	url = https://github.com/AIMS-UN/enrollment_ms.git
 [submodule "logic/aims_grading_ms"]
 	path = logic/aims_grading_ms
-	url = git@github.com:SGman98/aims_grading_ms.git
+	url = https://github.com/AIMS-UN/grading_ms.git
 [submodule "logic/aims_profile_ms"]
 	path = logic/aims_profile_ms
-	url = git@github.com:sansanchezmo/aims_profile_ms.git
+	url = https://github.com/AIMS-UN/profile_ms.git
 [submodule "logic/aims_schedule_ms"]
 	path = logic/aims_schedule_ms
-	url = git@github.com:DavidHernandez2001/aims_schedule_ms.git
+	url = https://github.com/AIMS-UN/schedule_ms.git
 [submodule "logic/aims_subject_ms"]
 	path = logic/aims_subject_ms
-	url = git@github.com:Judirale13/aims_subject_ms.git
+	url = https://github.com/AIMS-UN/subject_ms.git
 [submodule "integration/aims_api_gateway"]
 	path = integration/aims_api_gateway
-	url = git@github.com:SGman98/aims_api_gateway.git
+	url = https://github.com/AIMS-UN/api_gateway.git
 [submodule "apps/web"]
 	path = apps/web
-	url = git@github.com:sarodriguezva/aims_wa.git
+	url = https://github.com/AIMS-UN/web_app.git
 [submodule "apps/mobile"]
 	path = apps/mobile
-	url = git@github.com:SGman98/aims_mobile_app.git
+	url = https://github.com/AIMS-UN/mobile_app.git
 [submodule "interface"]
 	path = interface
-	url = git@github.com:SGman98/aims_interface.git
+	url = https://github.com/AIMS-UN/interface.git

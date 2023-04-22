@@ -16,7 +16,7 @@ interact with the system easily offering a diverse set of services.
 | ----------------------------- | -------------------------- | ----------------------------------------------------------- |
 | David Esteban Hernandez Gomez | davhernandezgo@unal.edu.co | [DavidHernandez2001](https://github.com/DavidHernandez2001) |
 | Josué David Briceño Urquijo   | jbriceno@unal.edu.co       | [jdbu2002](https://github.com/jdbu2002)                     |
-| Juan Diego Ramírez Lemos      | jramirezle@unal.edu.co     | [Judirale13](https://github.com/jdbu2002)                   |
+| Juan Diego Ramírez Lemos      | jramirezle@unal.edu.co     | [Judirale13](https://github.com/Judirale13)                 |
 | Santiago Rodríguez Vallejo    | sarodriguezva@unal.edu.co  | [sarodriguezva](https://github.com/sarodriguezva)           |
 | Santiago Sánchez Mora         | sansanchezmo@unal.edu.co   | [sansanchezmo](https://github.com/sansanchezmo)             |
 | Sebastian Garnica Quiroz      | sgarnicaq@unal.edu.co      | [SGman98](https://github.com/SGman98)                       |
@@ -86,15 +86,15 @@ It contains all the databases needed for the project.
 It contains all the microservices, each one uses the corresponding database, and
 exposes a REST API to interact with the data.
 
-| Microservice  |                   Language                   |                        Framework                         |                           Repository                           |
-| :------------ | :------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------------: |
-| account-ms    | [JavaScript](https://www.javascript.com/) 📜 |           [Express](https://expressjs.com/) 🚀           |      [Link](https://github.com/jdbu2002/aims_account_ms)       |
-| college-ms    |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |     [Link](https://github.com/Judirale13/aims_college_ms)      |
-| enrollment-ms |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |  [Link](https://github.com/sarodriguezva/aims_enrollment_ms)   |
-| grading-ms    |    [Rust](https://www.rust-lang.org/) 🦀     |             [Rocket](https://rocket.rs/) 🚀              |       [Link](https://github.com/SGman98/aims_grading_ms)       |
-| profile-ms    |     [Python](https://www.python.org/) 🐍     | [Flask](https://flask.palletsprojects.com/en/1.1.x/) 🌶️  |    [Link](https://github.com/sansanchezmo/aims_profile_ms)     |
-| schedule-ms   |         [Go](https://golang.org/) 🐹         |             [Gin](https://gin-gonic.com) 🍸              | [Link](https://github.com/DavidHernandez2001/aims_schedule_ms) |
-| subject-ms    |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |     [Link](https://github.com/Judirale13/aims_subject_ms)      |
+| Microservice  |                   Language                   |                        Framework                         |                    Repository                    |
+| :------------ | :------------------------------------------: | :------------------------------------------------------: | :----------------------------------------------: |
+| account-ms    | [JavaScript](https://www.javascript.com/) 📜 |           [Express](https://expressjs.com/) 🚀           |  [Link](https://github.com/AIMS-UN/account_ms)   |
+| college-ms    |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |  [Link](https://github.com/AIMS-UN/college_ms)   |
+| enrollment-ms |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 | [Link](https://github.com/AIMS-UN/enrollment_ms) |
+| grading-ms    |    [Rust](https://www.rust-lang.org/) 🦀     |             [Rocket](https://rocket.rs/) 🚀              |  [Link](https://github.com/AIMS-UN/grading_ms)   |
+| profile-ms    |     [Python](https://www.python.org/) 🐍     | [Flask](https://flask.palletsprojects.com/en/1.1.x/) 🌶️  |  [Link](https://github.com/AIMS-UN/profile_ms)   |
+| schedule-ms   |         [Go](https://golang.org/) 🐹         |             [Gin](https://gin-gonic.com) 🍸              |  [Link](https://github.com/AIMS-UN/schedule_ms)  |
+| subject-ms    |       [Java](https://www.java.com/) ☕       | [Spring Boot](https://spring.io/projects/spring-boot) 🍃 |  [Link](https://github.com/AIMS-UN/subject_ms)   |
 
 > The schedule microservices uses the same database as the enrollment microservice.
 > enrollment-ms is for mutations and schedule-ms is for queries.
@@ -105,9 +105,9 @@ It contains the API Gateway, this gateway connects all the microservices and
 exposes a single API using the [GraphQL](https://graphql.org/) query language,
 and the [Apollo Server](https://www.apollographql.com/docs/apollo-server/).
 
-| Microservice |                     Language                     |              Framework               |                     Repository                      |
-| :----------- | :----------------------------------------------: | :----------------------------------: | :-------------------------------------------------: |
-| ag           | [TypeScript](https://www.typescriptlang.org/) 📜 | [Express](https://expressjs.com/) 🚀 | [Link](https://github.com/SGman98/aims_api_gateway) |
+| Microservice |                     Language                     |              Framework               |                   Repository                   |
+| :----------- | :----------------------------------------------: | :----------------------------------: | :--------------------------------------------: |
+| ag           | [TypeScript](https://www.typescriptlang.org/) 📜 | [Express](https://expressjs.com/) 🚀 | [Link](https://github.com/AIMS-UN/api_gateway) |
 
 > The connection with the grading microservice uses a queue message broker, in this case [RabbitMQ](https://www.rabbitmq.com/).
 
@@ -115,10 +115,10 @@ and the [Apollo Server](https://www.apollographql.com/docs/apollo-server/).
 
 In this layer, we have the web application and the mobile application.
 
-| Application |                     Language                     |             Framework              |                     Repository                     |
-| :---------- | :----------------------------------------------: | :--------------------------------: | :------------------------------------------------: |
-| web         | [TypeScript](https://www.typescriptlang.org/) 📜 | [Angular](https://angular.io/) 🍃  |  [Link](https://github.com/sarodriguezva/aims_wa)  |
-| mobile      |           [Dart](https://dart.dev/) 🎯           | [Flutter](https://flutter.dev/) 🎯 | [Link](https://github.com/SGman98/aims_mobile_app) |
+| Application |                     Language                     |             Framework              |                  Repository                   |
+| :---------- | :----------------------------------------------: | :--------------------------------: | :-------------------------------------------: |
+| web         | [TypeScript](https://www.typescriptlang.org/) 📜 | [Angular](https://angular.io/) 🍃  |  [Link](https://github.com/AIMS-UN/web_app)   |
+| mobile      |           [Dart](https://dart.dev/) 🎯           | [Flutter](https://flutter.dev/) 🎯 | [Link](https://github.com/AIMS-UN/mobile_app) |
 
 To run the mobile application, you need to install [Flutter](https://flutter.dev/docs/get-started/install) and run the following command in the apps/mobile folder:
 
